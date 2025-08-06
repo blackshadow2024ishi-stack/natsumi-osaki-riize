@@ -111,7 +111,6 @@ button:hover {
 </style>
 </head>
 <body>
-<audio id="startSound" src="https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/音声セイル.m4a"></audio>
 
 <div id="weRiize">We Riize</div>
 <div id="title">なっちゃん誕生日おめでとう 2025 夏</div>
@@ -129,43 +128,129 @@ button:hover {
 
 <button onclick="flipCard()">トレカを引く！</button>
 
+<audio id="flipSound" src="https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/flip_sound.mp3"></audio>
+
 
 <script>
   
 const images = [
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/shotaro-riize-member-1.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxGVM8VbgAAKXBm.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GwsAnllbUAAQ0jW.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxfdnPsbwAAEXxO.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Gv5fZ9JXQAAckax.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/BF.40539680.1.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/3e5ac0fdfa7b0808290d10c87237991c.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Shotaro-2-jpg.webp",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxJ80dybYAA2P5D.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Gv5fb_haAAAKfHv.jpg",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4b9d42e7-935b-41c8-8a91-596f81970955_7390c88c.webp",
-    "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxBzKT5WQAAcbTi.jpg"
+   "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/070ff32fdce5242873b2a0239498b694.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/078532f5e1395302f199bbf0ad8b9bf5.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/08aed23c0c0994c785912486e557daf1.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/08cd6313a6023d6a307ea91bfcf165d7.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/0b787b85583319dac16b341cb96b0924.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/13930391e90eb7e5637d621d487c39b7.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/148c6eb61271fa4ac3d8f2b107cb61fa.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/14de7199a309e20423b5769c87205eb4.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/17c5f3913604501139174a98b662358f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/198de7fc2e21b542ce8be02bfcd6a36c.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/19e1bbabc8eaf925f045eae6969cd366.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/1a9f54f04a25b41ff19a2ec134442914.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/1ef5db0f34cc94223e77b265b8152ca1.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/20c806adf308466596d0952245ea039b.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/26aa94eb8b14c9229b075597b889291c.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/2801c9ad1aadfe2df5f534a785610c0a.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/299241bea2e294f287a5fe4ca3713d32.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/2d0ec1211d15df0eb228a3040d39d194.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/3014e9d1567e7f9155fde45b9728cbfa.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/31b654ae1a19fa943d2d1c9bd68b043e.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/364acd14b32a78d92fbb18510ce9857e.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/3c8fce81cac970dc21ed5c2d5db463a4.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/3f37cd2175c2f027e2085d575d6cbb58.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/3ff7bcd757064b9cdb1247aa99d66c3a.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4152f0a96f98d2455bbcc53df2472c42.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/42eecd2dfe218732cb323f4eb73e08e3.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4e334847bb9e2a807c94d837770dbf7f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5385df6467215c2b34ad6477227c55dc.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/53dc742c082882f1c12b0ce61f79d498.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5632a22dc6c500ed5ae5b16bdc32fb9e.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5af9ac5246a40b6b4bb4feb694a8221f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5c201c78803f7c389b8df7b97bc5ddb7.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5d11eee98a670aca072e04e6ae90e279.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/5ec09cdd4a293ede7492d72d9895c15d.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/618123ab208305ac808b40d313986cc0.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/6980cf93c4391be8e0d0b09ae96e4bff.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/6cb28155e52ac43e2f45d243a462c4dd.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/6d42cc824dbbf43f9f79da4bafe7ac96.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/6e0de06b3b6e534004dcab09af0dbaea.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/70ad00ae7cb6659e965bec6e45859f53.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/71c2391b2ce5fa99cddfd6987b657127.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/7d02a91c4f24f3a6faf958218be78993.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/7d13df30d3a0ec323ac4812b6953c911.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/816e032508060413020f9bc82b5bea15.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/8388cea283f207a6768fe6dff4b3671b.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/8531e70afc7a66ef4048f9024436532a.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/857165807aba035e9d3e41f35448a2bd.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/92ad80bd6b70d5332f5ea7a4b02566c5.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/94aa07edc0e37f70a40d70c09b96661f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/96bde9d631b1ab489c7f612a17b55ef3.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/99350414ddf6a766700bf88ce0570741.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/a172b1a128ce98babbcd645c368a8637.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/a4e7801e5e85e67c6b26c647fe719f94.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/a52423b2ee2d757193235946b678f65e.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/b02ecf1f1b97777f7064db966226a787.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/b3b683b2e70aff73d66e49a867f44fe6.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/bd418ef6d9b9be14b5391d84d41840a9.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/bdf95544212b9f7e992f84a7153c8341.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/BF.40539680.1.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/c2244cd31dc8bc541037a7cf0200424a.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/c413a85d450d45a1be524dc454fb4b2d.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/c5f9a9711baba5475c7e0e5a90124b02.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/c83f5142dc0c3138250523239c7b7bf9.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/c87153c58974b15fbe86d516adfae9d9.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/cfc8d38db039b554c382d61857af7ae3.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/d39e589d7a71a57d809e57afc7451e0f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/d3ccda43b78c4dc1afdb43666e6a9786.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/d7798e6aeca7f7e294182757919c6d97.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/da5b80b2d1b2d69654e8200be8fcd465.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/dc730f72cf33ad4ce8b652b1d27b0899.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/ddbd38c1ca9b682aa05cb75c16b18172.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/e24fc180e35ff7c8f099fe705ce458d9.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/e42999c06588bb46d07ff1dd28a6246e.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/e594474a430b59796d65a16e399e3ada.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/ec3d3abfabd6a5510b47ebf389e8ed37.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/ed057e7ea9668220fb6891f731a8b533.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/f04d4f9cbff122acfa11bddb1e5ac034.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/f6988033d8e127c0d6518b2cb33707ef.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/f7879c8b2f55bb04e28fff7a2f810d49.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/f96194b34fd770cec42479aec029ec77.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/faa3a060cd7170e819a34399f6fc0e7f.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/fab2bfe9dbeef0b37f2c092f99e56363.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/fdd3a2d40ea79df37d898d4681866c9a.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/fe4e37ff33c24f78497c204092e9c958.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Gv5fb_haAAAKfHv.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Gv5fZ9JXQAAckax.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GwsAnllbUAAQ0jW.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxBzKT5WQAAcbTi.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxfdnPsbwAAEXxO.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxGVM8VbgAAKXBm.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxJ80dybYAA2P5D.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxKGHmjbMAAKTH9.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxL0n1db0AA-n1d.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/shotaro-riize-member-1.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/ヌメロ・トウキョウ4月号特装版NCTショウタロウソンチャン3.jpg",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4b9d42e7-935b-41c8-8a91-596f81970955_7390c88c.webp",
+"https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Shotaro-2-jpg.webp"
 ];
 
 function flipCard() {
   const card = document.getElementById('cardInner');
   const imgElement = document.getElementById('cardImage');
+  const sound = document.getElementById('flipSound');
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
   imgElement.src = randomImage;
 
+  sound.currentTime = 0;
+  sound.play();
+
   card.classList.remove('flip');
-  void card.offsetWidth;  // Reflow to retrigger animation
+  void card.offsetWidth;
   card.classList.add('flip');
 }
-  window.addEventListener('DOMContentLoaded', () => {
-  const startSound = document.getElementById('startSound');
-  startSound.currentTime = 0;
-  startSound.play().catch(e => console.log('Autoplay error:', e));
-});
-
 </script>
 
 </body>
 </html>
+
 
