@@ -29,6 +29,23 @@ body {
   100% { opacity: 0; transform: translateY(-20px); }
 }
 
+#cakeButton {
+  display: none;
+  font-size: 1.2em;
+  padding: 15px 25px;
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+
+#cakeButton:hover {
+  background-color: #FF85C1;
+}
+
 #title {
   font-size: 1.2em;
   font-weight: bold;
@@ -113,6 +130,7 @@ button:hover {
 <body>
 
 <div id="weRiize">We Riize</div>
+<button id="cakeButton" onclick="playStartSound()">🎂 ケーキをタップしてスタート 🎶</button>
 <div id="title">なっちゃん誕生日おめでとう 2025 夏</div>
 
 <div id="card">
@@ -130,8 +148,6 @@ button:hover {
 
 <audio id="startSound" src="https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/音声センイル.m4a"></audio>
 <audio id="weRiizeSound" src="https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/we%20riize.m4a"></audio>
-
-
 
 <script>
   
@@ -236,9 +252,17 @@ const images = [
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
-  const startSound = document.getElementById('startSound');
-  startSound.play().catch(e => console.log('Autoplay error:', e));
+  setTimeout(() => {
+    document.getElementById('cakeButton').style.display = 'inline-block';
+  }, 3000);
 });
+
+function playStartSound() {
+  const startSound = document.getElementById('startSound');
+  startSound.currentTime = 0;
+  startSound.play();
+  document.getElementById('cakeButton').style.display = 'none';
+}
 
 function flipCard() {
   const card = document.getElementById('cardInner');
@@ -259,5 +283,3 @@ function flipCard() {
 
 </body>
 </html>
-
-
