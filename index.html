@@ -69,9 +69,31 @@ body {
 }
 
 .card-front {
+  position: relative;
   transform: rotateY(180deg);
-  background: #fff;
+  background: black;  /* カード全体を黒く塗る */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;  /* 画像がはみ出さないように */
 }
+
+.card-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* 画像をトリミングせずに全部見せる */
+  border-radius: 10px;
+}
+
 
 button {
   padding: 10px 20px;
@@ -102,7 +124,6 @@ button:hover {
 </div>
 
 <button onclick="flipCard()">トレカを引く！</button>
-<button onclick="resetCard()">もう一回引く！</button>
 
 <script>
 const images = [
@@ -121,20 +142,17 @@ const images = [
 ];
 function flipCard() {
   const card = document.getElementById('cardInner');
-  const front = document.getElementById('cardFront');
+  const imgElement = document.getElementById('cardImage');
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
-  // 画像元URLを一時的に Image() で読み込んで縦横比を取得
-  const img = new Image();
-  img.src = randomImage;
-  img.onload = () => {
-    const ratio = img.naturalWidth / img.naturalHeight;
-    const cardElement = document.getElementById('card');
-    cardElement.style.aspectRatio = ratio.toFixed(2);
-    front.style.backgroundImage = `url(${randomImage})`;
-    card.classList.add('flip');
-  };
+  imgElement.src = randomImage;
+
+  // めくり動作
+  card.classList.remove('flip');
+  void card.offsetWidth;  // Reflow
+  card.classList.add('flip');
 }
+
 
 function resetCard() {
   const card = document.getElementById('cardInner');
@@ -144,6 +162,7 @@ function resetCard() {
 
 </body>
 </html>
+
 
 
 
