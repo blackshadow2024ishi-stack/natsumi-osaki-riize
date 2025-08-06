@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Shotaro Random Gallery</title>
+</head>
+<body>
+    <h1>文字を打つとShotaroが出てくる！</h1>
+    <input type="text" id="textInput" placeholder="文字を入力してね">
+    <button onclick="showRandom()">表示</button>
+    <div id="output" style="margin-top:20px;"></div>
 
+    <script>
+        const images = [
+            "https://drive.google.com/uc?export=view&id=1rUAkDhA_E7iL0jj9f3B7B9QdViazs2S-czkv1_fHlnM",
+            "https://drive.google.com/uc?export=view&id=1cVz1574VhkXzpZgvMhY9_JRWbAtNXin4",
+            "https://drive.google.com/uc?export=view&id=1iTlCTncr63Td_tJXBzMq0KHtiyLl7Dbj",
+            "https://drive.google.com/uc?export=view&id=1jZ2Z-n3SZ7IGRuvAlAjzt7nssHBAJDbV",
+            "https://drive.google.com/uc?export=view&id=1nly9YapyFt0S7V2zYqzd8hm7Dg2QGk-Q",
+            "https://drive.google.com/uc?export=view&id=1UzPcMd-_TuscC74OOlfuCNr9eCIPKki0",
+            "https://drive.google.com/uc?export=view&id=1VDWG0MAgnaVswD5kTBqyCnkyXqLq00Xh",
+            "https://drive.google.com/uc?export=view&id=1WahJw_Q3FKWTozlXtgiiV_AaFvGLu2kO",
+            "https://drive.google.com/uc?export=view&id=1Wmt_wBhJ5Eq6i5Z4gG8Wo6q8dHBQgxKj",
+            "https://drive.google.com/uc?export=view&id=1cO9CPIX9BzoGPrGyNKrrXRy-2ksiayu0",
+            "https://drive.google.com/uc?export=view&id=18sp5hoUsY6f_NRuHKdOT3fytuSkLuW1G",
+            "https://drive.google.com/uc?export=view&id=1MzCWi1kLIta8d4ScKvddbSGXEw1oXJbd",
+            "https://drive.google.com/uc?export=view&id=1Qwc2OLokaG9vnpExJmKwakVBoJFbwGqB"
+        ];
+
+        function showRandom() {
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            document.getElementById('output').innerHTML = `<img src="${randomImage}" width="300">`;
+        }
+    </script>
+</body>
+</html>
