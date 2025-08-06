@@ -111,6 +111,7 @@ button:hover {
 </style>
 </head>
 <body>
+<audio id="startSound" src="https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/音声セイル.m4a"></audio>
 
 <div id="weRiize">We Riize</div>
 <div id="title">なっちゃん誕生日おめでとう 2025 夏</div>
@@ -130,6 +131,7 @@ button:hover {
 
 
 <script>
+  
 const images = [
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/shotaro-riize-member-1.jpg",
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxGVM8VbgAAKXBm.jpg",
@@ -156,7 +158,14 @@ function flipCard() {
   void card.offsetWidth;  // Reflow to retrigger animation
   card.classList.add('flip');
 }
+  window.addEventListener('DOMContentLoaded', () => {
+  const startSound = document.getElementById('startSound');
+  startSound.currentTime = 0;
+  startSound.play().catch(e => console.log('Autoplay error:', e));
+});
+
 </script>
 
 </body>
 </html>
+
