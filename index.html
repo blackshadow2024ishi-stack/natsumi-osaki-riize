@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Shotaro Random Gallery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なっちゃんトレカ引き</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+#message {
+  font-size: 2em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-top: 30px;
+  animation: sparkle 2s ease-out forwards;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: scale(1); text-shadow: none; }
+  50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 10px gold; }
+  100% { opacity: 1; transform: scale(1); text-shadow: 0 0 5px gold; }
+}
+
+#card {
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 3/4;
+  margin: 30px auto;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-inner.flip {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-size: cover;
+  background-position: center;
+}
+
+.card-back {
+  background: #FFD700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  background: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background: #FFD700;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+button:hover {
+  background: #FFC300;
+}
+</style>
 </head>
 <body>
-    <h1>文字を打つとShotaroが出てくる！</h1>
-    <input type="text" id="textInput" placeholder="文字を入力してね">
-    <button onclick="showRandom()">表示</button>
-    <div id="output" style="margin-top:20px;"></div>
 
-    <script>
+<div id="message">なっちゃんおめでとう</div>
+
+<div id="card">
+  <div class="card-inner" id="cardInner">
+    <div class="card-back">Click!</div>
+    <div class="card-front" id="cardFront"></div>
+  </div>
+</div>
+
+<button onclick="flipCard()">トレカを引く！</button>
+<button onclick="resetCard()">もう一回引く！</button>
+
+<script>
 const images = [
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/shotaro-riize-member-1.jpg",
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxGVM8VbgAAKXBm.jpg",
@@ -25,13 +119,19 @@ const images = [
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4b9d42e7-935b-41c8-8a91-596f81970955_7390c88c.webp",
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxBzKT5WQAAcbTi.jpg"
 ];
+function flipCard() {
+  const card = document.getElementById('cardInner');
+  const front = document.getElementById('cardFront');
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  front.style.backgroundImage = `url(${randomImage})`;
+  card.classList.add('flip');
+}
 
-function showRandom() {
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    document.getElementById('output').innerHTML = `<img src="${randomImage}" width="300">`;
+function resetCard() {
+  const card = document.getElementById('cardInner');
+  card.classList.remove('flip');
 }
 </script>
 
 </body>
 </html>
-
