@@ -8,29 +8,28 @@
 body {
   font-family: sans-serif;
   text-align: center;
-  background: #FF7F00;
+  background-color: #FF7F00; /* オレンジ背景 */
   margin: 0;
   padding: 0;
 }
 
 #message {
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
-  color: #FFD700;
-  margin-top: 30px;
-  animation: sparkle 2s ease-out forwards;
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  margin-top: 50px;
+  animation: fadeUp 2s ease-out forwards;
 }
 
-@keyframes sparkle {
-  0% { opacity: 0; transform: scale(1); text-shadow: none; }
-  50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 10px gold; }
-  100% { opacity: 1; transform: scale(1); text-shadow: 0 0 5px gold; }
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 #card {
   width: 80%;
   max-width: 300px;
-  height: auto;
   aspect-ratio: 3/4;
   margin: 30px auto;
   perspective: 1000px;
@@ -56,26 +55,18 @@ body {
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  background-size: contain;
-  background-position: center;
 }
 
 .card-back {
   background: url('https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/Riize%E3%83%AD%E3%82%B4.png') no-repeat center center;
   background-size: contain;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color: black;
 }
 
 .card-front {
-  position: relative;
+  background: black;
+  overflow: hidden;
   transform: rotateY(180deg);
-  background: black;  /* カード全体を黒く塗る */
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  overflow: hidden;  /* 画像がはみ出さないように */
 }
 
 .card-frame {
@@ -84,20 +75,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .card-frame img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;  /* 画像をトリミングせずに全部見せる */
+  object-fit: contain;
   border-radius: 10px;
 }
 
-
 button {
   padding: 10px 20px;
-  margin: 10px;
+  margin: 20px;
   font-size: 1em;
   border: none;
   border-radius: 8px;
@@ -114,12 +103,16 @@ button:hover {
 </head>
 <body>
 
-<div id="message">なっちゃんおめでとう</div>
+<div id="message">We Riize</div>
 
 <div id="card">
   <div class="card-inner" id="cardInner">
-    <div class="card-back">Click!</div>
-    <div class="card-front" id="cardFront"></div>
+    <div class="card-back"></div>
+    <div class="card-front">
+      <div class="card-frame">
+        <img id="cardImage" src="" alt="トレカ画像">
+      </div>
+    </div>
   </div>
 </div>
 
@@ -140,6 +133,7 @@ const images = [
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/4b9d42e7-935b-41c8-8a91-596f81970955_7390c88c.webp",
     "https://raw.githubusercontent.com/blackshadow2024ishi-stack/natsumi-osaki-riize/main/GxBzKT5WQAAcbTi.jpg"
 ];
+
 function flipCard() {
   const card = document.getElementById('cardInner');
   const imgElement = document.getElementById('cardImage');
@@ -152,17 +146,8 @@ function flipCard() {
   void card.offsetWidth;  // Reflow
   card.classList.add('flip');
 }
-
-
-function resetCard() {
-  const card = document.getElementById('cardInner');
-  card.classList.remove('flip');
-}
 </script>
 
 </body>
 </html>
-
-
-
 
