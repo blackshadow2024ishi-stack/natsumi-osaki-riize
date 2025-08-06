@@ -8,23 +8,32 @@
 body {
   font-family: sans-serif;
   text-align: center;
-  background-color: #FF7F00; /* オレンジ背景 */
+  background-color: #FF7F00;
   margin: 0;
   padding: 0;
 }
 
-#message {
+#weRiize {
   font-size: 3em;
   font-weight: bold;
   color: white;
   text-shadow: 0 0 10px rgba(255,255,255,0.7);
-  margin-top: 50px;
-  animation: fadeUp 2s ease-out forwards;
+  margin-top: 100px;
+  opacity: 0;
+  animation: fadeOutUp 3s forwards;
 }
 
-@keyframes fadeUp {
+@keyframes fadeOutUp {
   0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+#title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  margin-top: 20px;
 }
 
 #card {
@@ -103,7 +112,8 @@ button:hover {
 </head>
 <body>
 
-<div id="message">We Riize</div>
+<div id="weRiize">We Riize</div>
+<div id="title">なっちゃん誕生日おめでとう 2025 夏</div>
 
 <div id="card">
   <div class="card-inner" id="cardInner">
@@ -117,6 +127,7 @@ button:hover {
 </div>
 
 <button onclick="flipCard()">トレカを引く！</button>
+
 
 <script>
 const images = [
@@ -141,13 +152,11 @@ function flipCard() {
 
   imgElement.src = randomImage;
 
-  // めくり動作
   card.classList.remove('flip');
-  void card.offsetWidth;  // Reflow
+  void card.offsetWidth;  // Reflow to retrigger animation
   card.classList.add('flip');
 }
 </script>
 
 </body>
 </html>
-
