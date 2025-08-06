@@ -123,8 +123,17 @@ function flipCard() {
   const card = document.getElementById('cardInner');
   const front = document.getElementById('cardFront');
   const randomImage = images[Math.floor(Math.random() * images.length)];
-  front.style.backgroundImage = `url(${randomImage})`;
-  card.classList.add('flip');
+
+  // 画像元URLを一時的に Image() で読み込んで縦横比を取得
+  const img = new Image();
+  img.src = randomImage;
+  img.onload = () => {
+    const ratio = img.naturalWidth / img.naturalHeight;
+    const cardElement = document.getElementById('card');
+    cardElement.style.aspectRatio = ratio.toFixed(2);
+    front.style.backgroundImage = `url(${randomImage})`;
+    card.classList.add('flip');
+  };
 }
 
 function resetCard() {
@@ -135,4 +144,5 @@ function resetCard() {
 
 </body>
 </html>
+
 
